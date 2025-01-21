@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ErrorMessages } from '../models/components.model';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { DateAdapter } from '@angular/material/core';
+import { DateAdapter } from '@angular/material/common';
 
 @Component({
   selector: 'sbi-custom-datepicker',

@@ -10,7 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { AuthInterceptor } from './common/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],

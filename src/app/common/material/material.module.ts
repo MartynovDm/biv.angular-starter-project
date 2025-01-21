@@ -3,7 +3,7 @@ import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 registerLocaleData(localeRu);
 
-import { MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/common';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';

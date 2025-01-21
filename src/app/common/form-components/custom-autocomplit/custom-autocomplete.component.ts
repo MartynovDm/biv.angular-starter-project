@@ -4,7 +4,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { SelectableItem } from '../../models/core.model';
 import { BehaviorSubject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { ErrorMessages } from '../models/components.model';
-import { MaskitoOptions } from '@maskito/core';
+import { MaskitoOptions } from '@maskito/common';
 
 @Component({
   selector: 'sbi-custom-autocomplete',
