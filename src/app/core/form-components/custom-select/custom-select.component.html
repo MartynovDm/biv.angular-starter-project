@@ -1,0 +1,20 @@
+<mat-form-field appearance="fill">
+  <div *ngIf="control.value" class="placeholder-label">{{ label }}</div>
+  <mat-select
+    [compareWith]="compareFunction"
+    [formControl]="control"
+    [multiple]="isMultiple"
+    [placeholder]="label"
+    (selectionChange)="onSelectionChange($event)">
+    <mat-option *ngFor="let option of options" [value]="option.value">
+      {{ option.viewValue }}
+    </mat-option>
+  </mat-select>
+  <div class="chevron-down" matSuffix></div>
+</mat-form-field>
+
+<div *ngIf="control.status === 'INVALID' && control.touched && errorMessages" class="validation-errors">
+  <mat-error *ngIf="control?.hasError('required') && errorMessages.requiredErrorMessage">
+    {{ errorMessages.requiredErrorMessage }}
+  </mat-error>
+</div>

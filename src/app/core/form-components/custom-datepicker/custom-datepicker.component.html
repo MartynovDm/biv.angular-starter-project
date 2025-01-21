@@ -1,0 +1,27 @@
+<mat-form-field appearance="fill">
+  <div *ngIf="control.value" class="placeholder-label">{{ label }}</div>
+  <input
+    [formControl]="control"
+    matInput
+    [min]="min"
+    [max]="max"
+    [matDatepicker]="picker"
+    [placeholder]="label"
+    (dateInput)="dateInputChange($event)"
+    (dateChange)="dateSelectChange($event)"
+    appMaskDate />
+  <mat-datepicker-toggle *ngIf="!control.disabled" matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div *ngIf="control.status === 'INVALID' && control.touched && errorMessages" class="validation-errors">
+  <mat-error *ngIf="control?.hasError('matDatepickerMax') && errorMessages.maxDateErrorMessage">
+    {{ errorMessages.maxDateErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('matDatepickerMin') && errorMessages.minDateErrorMessage">
+    {{ errorMessages.minDateErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('required') && errorMessages.requiredErrorMessage">
+    {{ errorMessages.requiredErrorMessage }}
+  </mat-error>
+</div>

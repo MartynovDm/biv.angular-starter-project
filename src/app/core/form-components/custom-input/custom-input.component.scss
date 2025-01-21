@@ -1,0 +1,24 @@
+@import 'src/styles/variables';
+@import 'environment-variables';
+
+mat-form-field {
+  width: 100%;
+}
+
+.close-icon {
+  background-image: url(#{$image-path}/form-components/close.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.copy-icon {
+  background-image: url(#{$image-path}/form-components/copy.svg);
+  display: flex;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-right: 16px;
+}

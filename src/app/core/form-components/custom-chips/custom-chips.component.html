@@ -1,0 +1,12 @@
+<div *ngIf="value | async as value" class="chips-list">
+  <div *ngFor="let option of options">
+    <button
+      type="button"
+      class="chips-button"
+      [disabled]="option.disabled || isDisable"
+      [ngClass]="{ 'chips-button__active': value === option.value }"
+      (click)="changeValue(option.value)">
+      {{ option.viewValue }}
+    </button>
+  </div>
+</div>

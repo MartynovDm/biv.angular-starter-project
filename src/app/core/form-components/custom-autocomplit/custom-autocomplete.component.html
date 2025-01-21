@@ -1,0 +1,66 @@
+<mat-form-field appearance="fill">
+  <div class="search-block" matPrefix>
+    <div class="search-icon" *ngIf="prefixIconType === 'search'"></div>
+  </div>
+  <div *ngIf="control.value" class="placeholder-label">{{ label }}</div>
+  <input
+    type="text"
+    matInput
+    inputUppercase
+    [maxlength]="maxLength"
+    [inputUppercaseActive]="inputUppercaseActive"
+    appTitleCase
+    [placeholder]="label"
+    [appTitleCaseActive]="appTitleCaseActive"
+    [formControl]="control"
+    [maskito]="maskitoMask"
+    [matAutocomplete]="auto"
+    (input)="onInputChange()" />
+  <div
+    *ngIf="control.value && !control.disabled && typeIconButton === 'clear'"
+    (click)="onClearControl()"
+    class="close-icon"
+    matSuffix></div>
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    [displayWith]="displayFunc"
+    (optionSelected)="onSelectionChange($event)"
+    (opened)="onAutoCompleteOpened()">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.value">
+      <div *ngIf="!isMultiAutoComplete">{{ option.viewValue }}</div>
+      <sbi-custom-checkbox
+        *ngIf="isMultiAutoComplete"
+        [checkBoxValue]="option.value.checked"
+        [isDisabled]="Boolean(option.value.disabled || option.value.requiredOption)"
+        (click)="event?.preventDefault()"
+        [label]="option.viewValue"></sbi-custom-checkbox>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<div *ngIf="control.status === 'INVALID' && control.touched && errorMessages" class="validation-errors">
+  <mat-error *ngIf="control?.hasError('pattern') && errorMessages.patternErrorMessage">
+    {{ errorMessages.patternErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('regex') && errorMessages.regexErrorMessage">
+    {{ errorMessages.regexErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('maxlength') && errorMessages.maxLengthErrorMessage">
+    {{ errorMessages.maxLengthErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('minlength') && errorMessages.minLengthErrorMessage">
+    {{ errorMessages.minLengthErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('validateInput') && errorMessages.patternErrorMessage">
+    {{ errorMessages.patternErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('required') && errorMessages.requiredErrorMessage">
+    {{ errorMessages.requiredErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('incorrect') && errorMessages.incorrectErrorMessage">
+    {{ errorMessages.incorrectErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('notUniq') && errorMessages.notUniqErrorMessage">
+    {{ errorMessages.notUniqErrorMessage }}
+  </mat-error>
+</div>

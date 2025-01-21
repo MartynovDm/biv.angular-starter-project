@@ -1,0 +1,14 @@
+<div class="custom-checkbox-wrapper">
+  <div>
+    <input
+      *ngIf="control"
+      class="custom-checkbox"
+      type="checkbox"
+      [formControl]="control"
+      (change)="onCheckBoxValueChanged()" />
+  </div>
+  <div *ngIf="label" class="custom-checkbox-label" [ngClass]="{ link: isLink }" (click)="onClickToLink()">
+    <div>{{ label }}</div>
+    <div *ngIf="note" class="note">{{ note }}</div>
+  </div>
+</div>

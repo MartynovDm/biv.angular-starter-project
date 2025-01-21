@@ -1,0 +1,12 @@
+<div class="sbi-textarea-wrapper">
+  <div class="sbi-textarea-label">{{ label }}</div>
+  <div *ngIf="control.value && !control.disabled" class="sbi-textarea-icon" (click)="clearControl()">
+    <div class="close-icon"></div>
+  </div>
+  <textarea
+    class="sbi-textarea"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    cdkTextareaAutosize
+    cdkAutosizeMinRows="1"></textarea>
+</div>

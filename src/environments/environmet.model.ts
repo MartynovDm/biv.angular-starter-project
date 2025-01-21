@@ -3,4 +3,5 @@ export type Environment = {
   useStubs: boolean;
   baseURL: string;
   apiURL: string;
+  adminRoleURL: string;
 };

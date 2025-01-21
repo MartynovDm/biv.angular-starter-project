@@ -1,0 +1,69 @@
+@use '@angular/material' as mat;
+
+$custom-typography: mat.define-typography-config(
+  $font-family: '"SB Sans Display Kasko", sans-cursive;',
+);
+
+@include mat.core();
+
+@include mat.all-component-typographies($custom-typography);
+
+$light-primary-text: #ffffff7a;
+
+$sber-palette: (
+  50: #26c93c,
+  100: #26c93c,
+  200: #26c93c,
+  300: #26c93c,
+  400: #26c93c,
+  500: #26c93c,
+  600: #26c93c,
+  700: #26c93c,
+  800: #26c93c,
+  900: #26c93c,
+  A100: #26c93c,
+  A200: #26c93c,
+  A400: #26c93c,
+  A700: #26c93c,
+  contrast: (
+    50: $light-primary-text,
+    100: $light-primary-text,
+    200: $light-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $light-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  ),
+);
+
+$leasing-primary: mat.define-palette($sber-palette);
+$leasing-accent: mat.define-palette($sber-palette);
+
+$leasing-warn: mat.define-palette($sber-palette);
+
+$leasing-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $leasing-primary,
+      accent: $leasing-accent,
+      warn: $leasing-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($leasing-theme);
+
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-focus-overlay {
+  opacity: 0 !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: inherit;
+}

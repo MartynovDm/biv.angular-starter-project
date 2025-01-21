@@ -1,0 +1,5 @@
+<mat-radio-group class="custom-radio-group" [formControl]="control" (change)="radioButtonChangedFunc($event)">
+  <mat-radio-button *ngFor="let option of options" [value]="option">
+    <div class="custom-radio-label">{{ option }}</div>
+  </mat-radio-button>
+</mat-radio-group>

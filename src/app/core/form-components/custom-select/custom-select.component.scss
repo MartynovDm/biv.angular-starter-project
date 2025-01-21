@@ -1,0 +1,13 @@
+@import 'environment-variables';
+
+mat-form-field {
+  width: 100%;
+}
+
+.chevron-down {
+  background-image: url(#{$image-path}/form-components/chevron-down.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-right: 16px;
+}

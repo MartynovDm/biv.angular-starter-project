@@ -1,0 +1,30 @@
+@import 'environment-variables';
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-suffix {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.close-icon {
+  background-image: url(#{$image-path}/form-components/close.svg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+::ng-deep .cdk-overlay-pane:not(.mat-mdc-autocomplete-panel-above) div.mat-mdc-autocomplete-panel {
+  border-top-left-radius: 24px !important;
+  border-top-right-radius: 24px !important;
+}
+
+::ng-deep div.mat-mdc-autocomplete-panel {
+  border-radius: 24px !important;
+}

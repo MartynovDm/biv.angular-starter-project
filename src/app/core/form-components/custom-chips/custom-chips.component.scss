@@ -1,0 +1,36 @@
+.chips-list {
+  display: flex;
+  gap: 16px;
+}
+
+.chips-button {
+  padding: 7px 23px;
+  border-radius: 24px;
+  cursor: pointer;
+
+  border: 1px solid #ffffffbd;
+  box-shadow: 6px 17px 24px 0 #494b590a;
+  background: #ffffff7a;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #000000;
+
+  &__active {
+    background: #26c93c !important;
+    box-shadow: 0 8px 16px 0 #24c92129 !important;
+    border: 1px solid #ffffffbd !important;
+
+    color: #ffffff !important;
+  }
+}
+
+button:disabled {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}

@@ -1,0 +1,69 @@
+<mat-form-field appearance="fill">
+  <mat-icon class="search-icon" *ngIf="prefixIconType === 'search'" matPrefix>search</mat-icon>
+  <div *ngIf="control.value" class="placeholder-label">{{ label }}</div>
+  <input
+    [formControl]="control"
+    matInput
+    [mask]="ngxMask"
+    [suffix]="ngxSuffix"
+    [prefix]="ngxPrefix"
+    [patterns]="ngxPattern"
+    [separatorLimit]="ngxSeparatorLimit"
+    [dropSpecialCharacters]="dropSpecialCharacters"
+    [maxlength]="maxLength"
+    inputUppercase
+    [inputUppercaseActive]="inputUppercaseActive"
+    [readonly]="readonly"
+    (input)="onInputChange()"
+    [placeholder]="label"
+    #inputControl />
+  <div
+    *ngIf="control.value && !control.disabled && suffixIconType === 'clear'"
+    (click)="onClearControl()"
+    class="close-icon"
+    matSuffix></div>
+  <span
+    *ngIf="control.value && suffixIconType === 'copy'"
+    (click)="copyValue(inputControl)"
+    class="copy-icon"
+    matSuffix></span>
+  <span *ngIf="suffixIconType === 'custom'" matSuffix>
+    <ng-content select="[suffix-icon]"></ng-content>
+  </span>
+</mat-form-field>
+
+<div *ngIf="control.status === 'INVALID' && control.touched && errorMessages" class="validation-errors">
+  <mat-error *ngIf="control?.hasError('pattern') && errorMessages.patternErrorMessage">
+    {{ errorMessages.patternErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('regex') && errorMessages.regexErrorMessage">
+    {{ errorMessages.regexErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('maxlength') && errorMessages.maxLengthErrorMessage">
+    {{ errorMessages.maxLengthErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('minlength') && errorMessages.minLengthErrorMessage">
+    {{ errorMessages.minLengthErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('validateInput') && errorMessages.patternErrorMessage">
+    {{ errorMessages.patternErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('required') && errorMessages.requiredErrorMessage">
+    {{ errorMessages.requiredErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('max') && errorMessages.maxErrorMessage">
+    {{ errorMessages.maxErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('min') && errorMessages.minErrorMessage">
+    {{ errorMessages.minErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('incorrect') && errorMessages.incorrectErrorMessage">
+    {{ errorMessages.incorrectErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('customErrorMessage') && errorMessages.customErrorMessage">
+    {{ errorMessages.customErrorMessage }}
+  </mat-error>
+  <mat-error *ngIf="control?.hasError('notUniq') && errorMessages.notUniqErrorMessage">
+    {{ errorMessages.notUniqErrorMessage }}
+  </mat-error>
+</div>

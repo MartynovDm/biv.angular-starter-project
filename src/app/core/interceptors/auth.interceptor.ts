@@ -1,0 +1,19 @@
+import { Injectable } from '@angular/core';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  // cope from b2b
+  token =
+    'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJGQ0VlcFpJRkRkTWw0RWNJbkJ3bmlISlctT0xiMVBOUUlvckJVNXB2SGFFIn0.eyJleHAiOjE3MzIwNzQ4MzYsImlhdCI6MTczMjA3MTIzNiwiYXV0aF90aW1lIjoxNzMyMDY2Mzg4LCJqdGkiOiJkNmYwOGY3NS1mYjFlLTRjMWUtYmVhYS05YzcxYmMxMjI2NTAiLCJpc3MiOiJodHRwczovL3RzdC5zYmVyYmFua2lucy5ydS9hdXRoL3JlYWxtcy9zc292MiIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhYTIyY2NiOC0xYmFmLTQ1N2EtYTcyMi0wOTlhNmIzN2U3NmEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmcm9udGVuZCIsIm5vbmNlIjoiNGQxNmYwZmQtYjM4Mi00OGVjLTkzZjMtMjc0ZGYxMTE4ZWEzIiwic2Vzc2lvbl9zdGF0ZSI6IjY4N2ZlMmFlLWUyNTEtNDQ3Ni05YmUwLTM4NDA4ZDE3MDkyOCIsImFjciI6IjAiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly90c3Quc2JlcmJhbmtpbnMucnUiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImIyYl9hZG1pbiIsIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1zc292MjAiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBvcGVuaWQgZW1haWwiLCJzaWQiOiI2ODdmZTJhZS1lMjUxLTQ0NzYtOWJlMC0zODQwOGQxNzA5MjgiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiLQodCy0LXRgtC70LDQvdCwINCQ0LvQvNCw0LfQvtCy0LAiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzYWxtYXpvdmEiLCJnaXZlbl9uYW1lIjoi0KHQstC10YLQu9Cw0L3QsCIsImZhbWlseV9uYW1lIjoi0JDQu9C80LDQt9C-0LLQsCIsImVtYWlsIjoiY3Jpc3RpbmFhbG1hejE3MDJAZ21haWwuY29tIn0.aH2D10UegqThSayE5cID077c8sHEKUvtv5elK2XMfauWdeb2zZIgTvIx_LwufYF3ICvn1DakGVRvc7R8LgduchGcYH3xMUaST_q00Y7nKCU3c5yt8YeO7J_7j5IeZ3NgNSJF6zg6J1HLq2Px80-n65VJOlSraP9OTB7JnComu_E9vrGW1C0vGJ7MJsQ5qik6peKOXzi8ILB28TlnWJySYIhaN0_IUfRYJHCxn9yRbBjZYc-gzGMKp91EQo5NS33x3sIqu0h8VdYBN8dJyJdkl3RkFzs9EeXyYwcf_IMZyI4telEWKyNJB3WR1WRVOO6Sckze4uGnwx64KGmBMKR87Q';
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    req = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.token}`,
+      },
+    });
+    return next.handle(req);
+  }
+}

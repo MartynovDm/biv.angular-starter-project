@@ -5,4 +5,5 @@ export const environment: Environment = {
   useStubs: false,
   baseURL: '/',
   apiURL: '/',
+  adminRoleURL: '/b2b/v2/admin-roles-gate',
 };

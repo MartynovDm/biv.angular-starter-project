@@ -1,0 +1,36 @@
+.custom-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin-left: -10px;
+}
+
+.custom-radio-label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  text-align: left;
+  color: #000000;
+  padding-bottom: 14px;
+}
+
+::ng-deep {
+  .mdc-switch__shadow {
+    background-color: #ffffff !important;
+  }
+
+  .mdc-switch:disabled {
+    background-color: transparent !important;
+  }
+
+  .mdc-switch--checked {
+    ::ng-deep {
+      .mdc-switch__track {
+        opacity: 1 !important;
+        &::after {
+          background-color: #26c93c !important;
+        }
+      }
+    }
+  }
+}

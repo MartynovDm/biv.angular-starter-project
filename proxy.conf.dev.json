@@ -1,0 +1,14 @@
+{
+  "/auto/api": {
+    "target": "https://tst.sberbankins.ru",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/b2b/api": {
+    "target": "https://tst.sberbankins.ru",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
