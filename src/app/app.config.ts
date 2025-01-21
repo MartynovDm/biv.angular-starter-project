@@ -4,9 +4,9 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { appReducers } from '@src/app/store/app.reducers';
+import { appReducers } from './store/app.reducers';
 import { provideEffects } from '@ngrx/effects';
-import { AppEffects } from '@src/app/store/app.effects';
+import { AppEffects } from './store/app.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
